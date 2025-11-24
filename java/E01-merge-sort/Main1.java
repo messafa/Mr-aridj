@@ -1,4 +1,4 @@
-public class Main {
+public class Main1 {
     
     public static void main(String[] args) {
         int[] array = {8,4,5,3,7,9,0,3,6,1,2};
