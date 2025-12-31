@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithmic Problem Solving Laboratory - Final Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern CSS Reset and Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        /* Student Info */
+        .student-info {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            border-bottom: 3px solid #26d0ce;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #1a2980;
+        }
+
+        .info-card h3 {
+            color: #1a2980;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card h3 i {
+            color: #26d0ce;
+        }
+
+        /* Repository Section */
+        .repo-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .repo-section h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .repo-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .repo-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .repo-card h4 i {
+            color: #26d0ce;
+        }
+
+        .repo-link {
+            display: inline-block;
+            background: white;
+            color: #1a2980;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .repo-link:hover {
+            background: #26d0ce;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Mobile App Showcase */
+        .app-showcase {
+            padding: 50px 40px;
+            background: #f8f9fa;
+        }
+
+        .app-showcase h3 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1a2980;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .app-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-bottom: 3px solid #26d0ce;
+        }
+
+        .app-info {
+            padding: 20px;
+        }
+
+        .app-info h4 {
+            color: #1a2980;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Content Sections */
+        .content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px dashed #e0e0e0;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #26d0ce;
+        }
+
+        .exercise-number {
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(26, 41, 128, 0.3);
+        }
+
+        .exercise-title h3 {
+            font-size: 2rem;
+            color: #1a2980;
+            margin-bottom: 8px;
+        }
+
+        .algorithm-type {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        /* Code Highlight */
+        .code-snippet {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border-left: 5px solid #26d0ce;
+        }
+
+        .code-keyword {
+            color: #569cd6;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        .code-string {
+            color: #ce9178;
+        }
+
+        .code-number {
+            color: #b5cea8;
+        }
+
+        /* Analysis Box */
+        .analysis-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .analysis-box h4 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .analysis-box h4::before {
+            content: "📊";
+            margin-right: 10px;
+        }
+
+        /* Performance Metrics */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #26d0ce;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-card h5 {
+            color: #1a2980;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #26d0ce;
+            margin: 10px 0;
+        }
+
+        /* Conclusion */
+        .conclusion {
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .conclusion h3 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .conclusion p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .action-btn {
+            padding: 15px 25px;
+            background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .exercise-title h3 {
+                font-size: 1.6rem;
+            }
+            
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .repo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .metric-card {
+                break-inside: avoid;
+            }
+            
+            .action-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Algorithmic Problem Solving Laboratory</h1>
+            <h2>Comprehensive Analysis Report with Mobile App Implementation</h2>
+        </div>
+
+        <!-- Student Information -->
+        <div class="student-info">
+            <div class="info-card">
+                <h3><i class="fas fa-user-graduate"></i> Student Information</h3>
+                <p><strong>Name:</strong> MESSAFA Mohammed</p>
+                <p><strong>Student ID:</strong> 172132016926 </p>
+                <p><strong>Course:</strong> MCCP </p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-calendar-alt"></i> Project Details</h3>
+                <p><strong>Date:</strong>31 December 2025</p>
+                <p><strong>Languages:</strong> Java, Lisp, Kotlin</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-chalkboard-teacher"></i> Supervisor</h3>
+                <p><strong>Professor:</strong> Mr. Aridj</p>
+                <p><strong>Department:</strong> Computer Science</p>
+            </div>
+        </div>
+
+        <!-- Repository Links Section -->
+        <!-- <div class="repo-section">
+            <h3><i class="fab fa-github"></i> GitHub Repositories</h3>
+            <div class="repo-grid">
+                <div class="repo-card">
+                    <h4><i class="fas fa-code"></i> Java Algorithms Repository</h4>
+                    <p>Complete implementation of all 9 algorithms in Java including Merge Sort, Backtracking, Minimax, Alpha-Beta, BFS, Branch & Bound, A*, and Lisp interpreter.</p>
+                    <p><strong>Tech Stack:</strong> Java 11, OOP Principles</p>
+                    <a href="https://github.com/messafa/Mr-aridj" class="repo-link" target="_blank">
+                        <i class="fab fa-github"></i> Visit Repository
+                    </a>
+                </div>
+                <div class="repo-card">
+                    <h4><i class="fas fa-mobile-alt"></i> Kotlin Mobile App</h4>
+                    <p>Android application implementing interactive versions of the algorithms with beautiful UI/UX. Includes games like Sudoku, Tic Tac Toe, and pathfinding visualizations.</p>
+                    <p><strong>Tech Stack:</strong> Kotlin, Android SDK, Jetpack Compose</p>
+                    <a href="https://github.com/messafa/MCCP" class="repo-link" target="_blank">
+                        <i class="fab fa-github"></i> Visit Repository
+                    </a>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Mobile App Showcase -->
+        <div class="app-showcase">
+            <h3><i class="fas fa-mobile-alt"></i> Mobile Application Screenshots</h3>
+            <p style="text-align: center; margin-bottom: 30px; color: #666; max-width: 800px; margin-left: auto; margin-right: auto;">
+                The algorithms were transformed into an interactive Android application using Kotlin, providing visual demonstrations of each algorithm in action.
+            </p>
+            
+            <div class="app-grid">
+                <div class="app-card">
+                    <img src="https://res.cloudinary.com/duv5qcbyb/image/upload/v1767217402/Screenshot_2025-12-31-22-36-07-11_3317744781675b3955c358ecb975f5f7_c6fkq1.jpg" 
+                         alt="Main Menu" class="app-image">
+                    <div class="app-info">
+                        <h4>Main Menu</h4>
+                        <p>Interactive dashboard with all algorithm implementations</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <img src="https://res.cloudinary.com/duv5qcbyb/image/upload/v1767217402/Screenshot_2025-12-31-22-36-15-51_3317744781675b3955c358ecb975f5f7_kmurg3.jpg" 
+                         alt="Sudoku Game" class="app-image">
+                    <div class="app-info">
+                        <h4>Sudoku Solver</h4>
+                        <p>Interactive Sudoku with backtracking visualization</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <img src="https://res.cloudinary.com/duv5qcbyb/image/upload/v1767217402/Screenshot_2025-12-31-22-36-33-91_3317744781675b3955c358ecb975f5f7_xwlxkh.jpg" 
+                         alt="Tic Tac Toe Game" class="app-image">
+                    <div class="app-info">
+                        <h4>Tic Tac Toe AI</h4>
+                        <p>Minimax algorithm with difficulty levels</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <img src="https://res.cloudinary.com/duv5qcbyb/image/upload/v1767217402/Screenshot_2025-12-31-22-36-42-51_3317744781675b3955c358ecb975f5f7_nkvs7f.jpg" 
+                         alt="Tic Tac Toe Win" class="app-image">
+                    <div class="app-info">
+                        <h4>Game Victory</h4>
+                        <p>AI opponent using Minimax with Alpha-Beta pruning</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <img src="https://res.cloudinary.com/duv5qcbyb/image/upload/v1767217402/Screenshot_2025-12-31-22-37-32-76_3317744781675b3955c358ecb975f5f7_pixhp8.jpg" 
+                         alt="A* Pathfinding" class="app-image">
+                    <div class="app-info">
+                        <h4>A* Pathfinding</h4>
+                        <p>Visualization of A* algorithm finding optimal path</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <img src="https://res.cloudinary.com/duv5qcbyb/image/upload/v1767217402/Screenshot_2025-12-31-22-39-02-16_3317744781675b3955c358ecb975f5f7_ppjiaw.jpg" 
+                         alt="BFS Visualization" class="app-image">
+                    <div class="app-info">
+                        <h4>BFS Traversal</h4>
+                        <p>Breadth-First Search visualization on grid</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Executive Summary -->
+            <!-- <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">📋</div>
+                    <div class="exercise-title">
+                        <h3>Executive Summary</h3>
+                        <div class="algorithm-type">Overview</div>
+                    </div>
+                </div>
+                <p>This report documents the implementation and analysis of nine fundamental algorithms spanning multiple domains of computer science. Each exercise represents a critical milestone in understanding algorithmic thinking, from basic sorting techniques to advanced artificial intelligence algorithms. The laboratory work emphasizes both theoretical comprehension and practical implementation skills.</p>
+                
+                <div class="metrics">
+                    <div class="metric-card">
+                        <h5>Algorithms Implemented</h5>
+                        <div class="metric-value">9</div>
+                        <p>Complete working solutions</p>
+                    </div>
+                    <div class="metric-card">
+                        <h5>Code Lines</h5>
+                        <div class="metric-value">850+</div>
+                        <p>Java & Lisp combined</p>
+                    </div>
+                    <div class="metric-card">
+                        <h5>Mobile App Features</h5>
+                        <div class="metric-value">6</div>
+                        <p>Interactive visualizations</p>
+                    </div>
+                    <div class="metric-card">
+                        <h5>GitHub Repositories</h5>
+                        <div class="metric-value">2</div>
+                        <p>Java & Kotlin projects</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Exercise 01: Merge Sort -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">01</div>
+                    <div class="exercise-title">
+                        <h3>Merge Sort Algorithm</h3>
+                        <div class="algorithm-type">Divide & Conquer</div>
+                        <div class="algorithm-type">Sorting</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Implement the Merge Sort algorithm demonstrating the Divide and Conquer paradigm with guaranteed O(n log n) performance.</p>
+                
+                <div class="code-snippet">
+                    <span class="code-keyword">private static void</span> <span class="code-string">merge</span>(<span class="code-keyword">int</span>[] array, <span class="code-keyword">int</span>[] left, <span class="code-keyword">int</span>[] right) {<br>
+                    &nbsp;&nbsp;<span class="code-keyword">int</span> i = <span class="code-number">0</span>, j = <span class="code-number">0</span>, k = <span class="code-number">0</span>;<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Merge two sorted halves</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">while</span> (i &lt; leftSize && j &lt; rightSize) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> (left[i] &lt;= right[j]) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[k++] = left[i++];<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;} <span class="code-keyword">else</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[k++] = right[j++];<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Time Complexity:</strong> O(n log n) in worst, average, and best cases</p>
+                    <p><strong>Space Complexity:</strong> O(n) auxiliary space</p>
+                    <p><strong>Stability:</strong> Stable (preserves relative order of equal elements)</p>
+                    <p><strong>Key Insight:</strong> The merge step is where two pre-sorted arrays are combined into a single sorted array, representing the "conquer" phase of the algorithm.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 02: Backtracking Maze -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">02</div>
+                    <div class="exercise-title">
+                        <h3>Backtracking in 2D Matrix</h3>
+                        <div class="algorithm-type">Backtracking</div>
+                        <div class="algorithm-type">Pathfinding</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Implement a recursive backtracking algorithm to find a path through a binary matrix from start to end point.</p>
+                
+                <div class="code-snippet">
+                    <span class="code-keyword">private static void</span> <span class="code-string">traverseMatrix</span>(<span class="code-keyword">int</span>[][] matrix, <span class="code-keyword">int</span>[][] visited, Point start, Point end) {<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Base case: reached destination</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (start.x == end.x && start.y == end.y) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="code-string">"Reached end point"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span>;<br>
+                    &nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Mark current cell as visited</span><br>
+                    &nbsp;&nbsp;visited[start.y][start.x] = <span class="code-number">1</span>;<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Explore four directions (DFS)</span><br>
+                    &nbsp;&nbsp;traverseMatrix(matrix, visited, <span class="code-keyword">new</span> Point(x, y-<span class="code-number">1</span>), end); <span class="code-comment">// Up</span><br>
+                    &nbsp;&nbsp;<span class="code-comment">// ... other directions</span><br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Backtrack: unmark for other paths</span><br>
+                    &nbsp;&nbsp;visited[start.y][start.x] = <span class="code-number">0</span>;<br>
+                    }
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Search Type:</strong> Depth-First Search with backtracking</p>
+                    <p><strong>Time Complexity:</strong> O(4^(m×n)) in worst case (exponential)</p>
+                    <p><strong>Space Complexity:</strong> O(m×n) for visited matrix + recursion stack</p>
+                    <p><strong>Critical Mechanism:</strong> The visited matrix prevents infinite loops, while the backtracking step (unmarking) allows exploration of alternative paths when dead ends are encountered.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 03: Sudoku Solver -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">03</div>
+                    <div class="exercise-title">
+                        <h3>Sudoku Solver</h3>
+                        <div class="algorithm-type">Backtracking</div>
+                        <div class="algorithm-type">Constraint Satisfaction</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Solve a standard 9×9 Sudoku puzzle using recursive backtracking with constraint checking.</p>
+                
+                <div class="code-snippet">
+                    <span class="code-keyword">public static boolean</span> <span class="code-string">solve</span>(<span class="code-keyword">int</span>[][] board) {<br>
+                    &nbsp;&nbsp;<span class="code-keyword">for</span> (<span class="code-keyword">int</span> row = <span class="code-number">0</span>; row &lt; <span class="code-number">9</span>; row++) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">for</span> (<span class="code-keyword">int</span> col = <span class="code-number">0</span>; col &lt; <span class="code-number">9</span>; col++) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> (board[row][col] == <span class="code-number">0</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Try numbers 1-9</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">for</span> (<span class="code-keyword">int</span> num = <span class="code-number">1</span>; num &lt;= <span class="code-number">9</span>; num++) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> (isValid(board, row, col, num)) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;board[row][col] = num; <span class="code-comment">// Try</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> (solve(board)) <span class="code-keyword">return true</span>; <span class="code-comment">// Recurse</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;board[row][col] = <span class="code-number">0</span>; <span class="code-comment">// Backtrack</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return false</span>; <span class="code-comment">// No valid number</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;<span class="code-keyword">return true</span>; <span class="code-comment">// Solved</span><br>
+                    }
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Problem Type:</strong> Exact Cover Problem with constraints</p>
+                    <p><strong>Worst Case Time:</strong> O(9^(n)) where n is number of empty cells</p>
+                    <p><strong>Constraint Checking:</strong> Three simultaneous constraints: row, column, and 3×3 box</p>
+                    <p><strong>Optimization:</strong> The isValid() function prunes invalid branches early, significantly reducing search space</p>
+                </div>
+            </div>
+
+            <!-- Exercise 04: Minimax -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">04</div>
+                    <div class="exercise-title">
+                        <h3>Minimax for Tic-Tac-Toe</h3>
+                        <div class="algorithm-type">Game Theory</div>
+                        <div class="algorithm-type">Decision Making</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Implement the Minimax algorithm for perfect play in Tic-Tac-Toe, enabling the computer to never lose.</p>
+                
+                <div class="code-snippet">
+                    <span class="code-keyword">public static int</span> <span class="code-string">minimax</span>(<span class="code-keyword">char</span>[][] board, <span class="code-keyword">int</span> depth, <span class="code-keyword">boolean</span> isMax) {<br>
+                    &nbsp;&nbsp;<span class="code-keyword">int</span> score = evaluate(board);<br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (score == <span class="code-number">10</span>) <span class="code-keyword">return</span> score - depth; <span class="code-comment">// AI wins</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (score == -<span class="code-number">10</span>) <span class="code-keyword">return</span> score + depth; <span class="code-comment">// Human wins</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (!isMovesLeft(board)) <span class="code-keyword">return</span> <span class="code-number">0</span>; <span class="code-comment">// Draw</span><br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (isMax) { <span class="code-comment">// AI's turn (maximize)</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">int</span> best = -<span class="code-number">1000</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">for</span> (<span class="code-keyword">int</span> i = <span class="code-number">0</span>; i &lt; <span class="code-number">3</span>; i++) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;best = Math.max(best, minimax(board, depth+<span class="code-number">1</span>, <span class="code-keyword">false</span>));<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> best;<br>
+                    &nbsp;&nbsp;} <span class="code-keyword">else</span> { <span class="code-comment">// Human's turn (minimize)</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Similar minimization logic</span><br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Game Tree Size:</strong> Up to 9! = 362,880 possible board states</p>
+                    <p><strong>Depth-first Search:</strong> Explores complete game tree</p>
+                    <p><strong>Evaluation Function:</strong> Simple win/lose/draw scoring with depth penalty/reward</p>
+                    <p><strong>Optimal Play:</strong> Guarantees at least a draw for AI when playing first</p>
+                </div>
+            </div>
+
+            <!-- Exercise 05: Alpha-Beta Pruning -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">05</div>
+                    <div class="exercise-title">
+                        <h3>Alpha-Beta Pruning</h3>
+                        <div class="algorithm-type">Optimization</div>
+                        <div class="algorithm-type">Game Theory</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Enhance Minimax with Alpha-Beta pruning to reduce the number of nodes evaluated without affecting optimality.</p>
+                
+                <div class="code-snippet">
+                    <span class="code-keyword">static int</span> <span class="code-string">alphaBeta</span>(Node node, <span class="code-keyword">int</span> depth, <span class="code-keyword">int</span> alpha, <span class="code-keyword">int</span> beta, <span class="code-keyword">boolean</span> maximizingPlayer) {<br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (maximizingPlayer) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">int</span> maxEval = Integer.MIN_VALUE;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">for</span> (Node child : node.children) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">int</span> eval = alphaBeta(child, depth-<span class="code-number">1</span>, alpha, beta, <span class="code-keyword">false</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxEval = Math.max(maxEval, eval);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha = Math.max(alpha, eval);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// ✂️ PRUNING CONDITION</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> (beta &lt;= alpha) <span class="code-keyword">break</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> maxEval;<br>
+                    &nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Minimizing player similar with beta update</span><br>
+                    }
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Optimization:</strong> Can reduce evaluated nodes by 50% or more in game trees</p>
+                    <p><strong>Alpha (α):</strong> Best already explored option for maximizer</p>
+                    <p><strong>Beta (β):</strong> Best already explored option for minimizer</p>
+                    <p><strong>Pruning Rule:</strong> When β ≤ α, the branch cannot affect final decision</p>
+                    <p><strong>Efficiency:</strong> Same result as Minimax but much faster</p>
+                </div>
+            </div>
+
+            <!-- Exercise 06: BFS -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">06</div>
+                    <div class="exercise-title">
+                        <h3>Breadth-First Search</h3>
+                        <div class="algorithm-type">Graph Traversal</div>
+                        <div class="algorithm-type">Uninformed Search</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Implement BFS for graph traversal using a queue data structure to explore nodes level by level.</p>
+                
+                <div class="code-snippet">
+                    <span class="code-keyword">void</span> <span class="code-string">BFS</span>(<span class="code-keyword">int</span> start) {<br>
+                    &nbsp;&nbsp;Queue&lt;Integer&gt; queue = <span class="code-keyword">new</span> LinkedList&lt;&gt;();<br>
+                    &nbsp;&nbsp;boolean[] visited = <span class="code-keyword">new</span> <span class="code-keyword">boolean</span>[vertices];<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;visited[start] = <span class="code-keyword">true</span>;<br>
+                    &nbsp;&nbsp;queue.add(start);<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="code-keyword">while</span> (!queue.isEmpty()) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">int</span> node = queue.poll();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.print(node + <span class="code-string">" "</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">for</span> (<span class="code-keyword">int</span> n : adj[node]) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> (!visited[n]) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited[n] = <span class="code-keyword">true</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;queue.add(n);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Data Structure:</strong> Queue (FIFO) ensures level-order traversal</p>
+                    <p><strong>Time Complexity:</strong> O(V + E) for adjacency list representation</p>
+                    <p><strong>Space Complexity:</strong> O(V) for queue and visited array</p>
+                    <p><strong>Optimality:</strong> Guarantees shortest path in unweighted graphs</p>
+                    <p><strong>Applications:</strong> Social networks, web crawling, GPS navigation</p>
+                </div>
+            </div>
+
+            <!-- Exercise 07: Branch and Bound -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">07</div>
+                    <div class="exercise-title">
+                        <h3>Branch and Bound</h3>
+                        <div class="algorithm-type">Optimization</div>
+                        <div class="algorithm-type">Combinatorial</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Solve the 0/1 Knapsack problem using Branch and Bound with pruning based on upper bound calculations.</p>
+                
+                <div class="code-snippet">
+                    <span class="code-keyword">static void</span> <span class="code-string">knapsack</span>(<span class="code-keyword">int</span> index, <span class="code-keyword">int</span> weight, <span class="code-keyword">int</span> value, <span class="code-keyword">int</span> capacity, Item[] items) {<br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (weight > capacity) <span class="code-keyword">return</span>;<br>
+                    &nbsp;&nbsp;maxValue = Math.max(maxValue, value);<br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (index == items.length) <span class="code-keyword">return</span>;<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Calculate upper bound (optimistic estimate)</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">int</span> b = bound(index, weight, value, capacity, items);<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="code-comment">// ✂️ PRUNE if bound ≤ current best</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">if</span> (b &lt;= maxValue) <span class="code-keyword">return</span>;<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Branch: take item</span><br>
+                    &nbsp;&nbsp;knapsack(index+<span class="code-number">1</span>, weight+items[index].weight, <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value+items[index].value, capacity, items);<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Branch: skip item</span><br>
+                    &nbsp;&nbsp;knapsack(index+<span class="code-number">1</span>, weight, value, capacity, items);<br>
+                    }
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Problem:</strong> NP-Hard combinatorial optimization</p>
+                    <p><strong>Strategy:</strong> Depth-first search with intelligent pruning</p>
+                    <p><strong>Bound Function:</strong> Relaxes integrality constraint for optimistic estimate</p>
+                    <p><strong>Pruning Power:</strong> Eliminates branches that cannot beat current best solution</p>
+                    <p><strong>Real-world Use:</strong> Resource allocation, portfolio optimization, cutting stock</p>
+                </div>
+            </div>
+
+            <!-- Exercise 08: A* Algorithm -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">08</div>
+                    <div class="exercise-title">
+                        <h3>A* Search Algorithm</h3>
+                        <div class="algorithm-type">Heuristic Search</div>
+                        <div class="algorithm-type">Pathfinding</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Implement A* algorithm for grid-based pathfinding using Manhattan distance heuristic.</p>
+                
+                <div class="code-snippet">
+                    <span class="code-keyword">static int</span> <span class="code-string">heuristic</span>(Node a, Node b) {<br>
+                    &nbsp;&nbsp;<span class="code-comment">// Manhattan distance for grid</span><br>
+                    &nbsp;&nbsp;<span class="code-keyword">return</span> Math.abs(a.x - b.x) + Math.abs(a.y - b.y);<br>
+                    }<br>
+                    <br>
+                    <span class="code-comment">// A* core: f(n) = g(n) + h(n)</span><br>
+                    Node current = open.poll();<br>
+                    <span class="code-keyword">int</span> tentativeG = current.g + <span class="code-number">1</span>;<br>
+                    neighbor.g = tentativeG;<br>
+                    neighbor.h = heuristic(neighbor, goal);<br>
+                    neighbor.f = neighbor.g + neighbor.h; <span class="code-comment">// Total cost</span>
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Heuristic:</strong> Manhattan distance (admissible and consistent)</p>
+                    <p><strong>Data Structure:</strong> Priority queue ordered by f(n) = g(n) + h(n)</p>
+                    <p><strong>Optimality:</strong> Guarantees shortest path with admissible heuristic</p>
+                    <p><strong>Completeness:</strong> Yes, if solution exists and heuristic is reasonable</p>
+                    <p><strong>Industry Use:</strong> Video games (pathfinding), robotics, GPS systems</p>
+                </div>
+            </div>
+
+            <!-- Exercise 09: Lisp Programming -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="exercise-number">09</div>
+                    <div class="exercise-title">
+                        <h3>Functional Programming in Lisp</h3>
+                        <div class="algorithm-type">Functional</div>
+                        <div class="algorithm-type">Recursion</div>
+                    </div>
+                </div>
+                
+                <p><strong>Objective:</strong> Write a recursive Lisp function to sum all numbers in a nested list structure.</p>
+                
+                <div class="code-snippet">
+                    (<span class="code-keyword">defun</span> sum-all (lst)<br>
+                    &nbsp;&nbsp;(cond<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;((null lst) <span class="code-number">0</span>)                    <span class="code-comment">; Base case</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;((listp (car lst))               <span class="code-comment">; If first element is list</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; (+ (sum-all (car lst))          <span class="code-comment">; Recurse on sublist</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(sum-all (cdr lst))))    <span class="code-comment">; Recurse on rest</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;((numberp (car lst))            <span class="code-comment">; If first is number</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; (+ (car lst)                    <span class="code-comment">; Add number</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(sum-all (cdr lst))))    <span class="code-comment">; Recurse on rest</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;(t (sum-all (cdr lst)))))        <span class="code-comment">; Ignore non-numbers</span>
+                </div>
+
+                <div class="analysis-box">
+                    <h4>Algorithm Analysis</h4>
+                    <p><strong>Paradigm:</strong> Functional programming with pure functions</p>
+                    <p><strong>List Processing:</strong> Uses car (first) and cdr (rest) operations</p>
+                    <p><strong>Recursion:</strong> Natural approach for nested structures in Lisp</p>
+                    <p><strong>Pattern Matching:</strong> cond statement handles different data types</p>
+                    <p><strong>Educational Value:</strong> Demonstrates thinking recursively about data</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="conclusion">
+            <h3>Laboratory Conclusions & Insights</h3>
+            <p>This comprehensive laboratory exercise successfully demonstrated the practical implementation and analysis of nine fundamental algorithms spanning multiple computational paradigms. The project was extended beyond theoretical implementation to include a fully-functional mobile application, showcasing real-world application of these algorithms.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <h4 style="margin-bottom: 15px;">🏆 Key Achievements</h4>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Mastered 9 core algorithms with Java implementations</li>
+                        <li>Developed interactive Android app with Kotlin</li>
+                        <li>Created visual demonstrations of algorithm behavior</li>
+                        <li>Implemented game AI with optimal play strategies</li>
+                        <li>Built complete pathfinding visualizations</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <h4 style="margin-bottom: 15px;">🎯 Future Applications</h4>
+                    <ul style="text-align: left; margin-left: 20px;">
+                        <li>Game development studios for AI opponents</li>
+                        <li>Navigation and mapping applications</li>
+                        <li>Educational software for computer science</li>
+                        <li>Optimization tools for logistics companies</li>
+                        <li>Puzzle and game development</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 25px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                <h4 style="margin-bottom: 20px;">📱 Mobile Application Impact</h4>
+                <p>The Kotlin mobile application successfully transformed theoretical algorithms into engaging, interactive experiences. Users can visually track algorithm progress, adjust parameters in real-time, and understand complex concepts through hands-on interaction.</p>
+            </div>
+            
+            <p style="margin-top: 40px; font-size: 1.3rem; font-weight: 300;">
+                <strong>Final Assessment:</strong> All objectives successfully met with demonstrated proficiency in algorithmic design, implementation, and practical application development. This project showcases both theoretical understanding and software engineering skills.
+            </p>
+            
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="font-size: 1.1rem;">
+                    <strong>Student:</strong> MESSAFA Mohammed<br>
+                    <strong>GitHub:</strong> <a href="https://github.com/messafa" style="color: white; text-decoration: underline;">github.com/messafa</a><br>
+                    <strong>Date Submitted:</strong> 31/12/2025<br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <button class="action-btn" onclick="window.open('https://github.com/messafa/Mr-aridj', '_blank')">
+            <i class="fab fa-github"></i> Java Repo
+        </button>
+        <button class="action-btn" onclick="window.open('https://github.com/messafa/MCCP', '_blank')">
+            <i class="fab fa-github"></i> Kotlin App
+        </button>
+        <button class="action-btn" onclick="window.print()">
+            <i class="fas fa-print"></i> Print Report
+        </button>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to metric cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Animate metric cards
+            document.querySelectorAll('.metric-card, .repo-card, .app-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add image loading animation
+            const images = document.querySelectorAll('.app-image');
+            images.forEach(img => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.5s ease';
+                
+                img.onload = function() {
+                    this.style.opacity = '1';
+                };
+                
+                // Trigger load for cached images
+                if (img.complete) {
+                    img.style.opacity = '1';
+                }
+            });
+        });
+
+        // Print optimization
+        window.addEventListener('beforeprint', function() {
+            document.querySelector('.action-buttons').style.display = 'none';
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.querySelector('.action-buttons').style.display = 'flex';
+        });
+    </script>
+</body>
+</html>
